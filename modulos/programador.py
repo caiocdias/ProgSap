@@ -16,13 +16,21 @@ class Programador:
         self.boxAtividade = Ponto(572, 240)
         self.boxAcoes = Ponto(663, 240)
         self.sairPoint = Ponto(117, 55)
+        
         self.cellAcao = Ponto(122, 343) 
         self.cellAcao2 = Ponto(122, 369)
+        self.cellAcao3 = Ponto(122, 396)
+        self.cellAcao4 = Ponto(122, 423)
+
         self.usrealbox = Ponto(281, 343)
         self.termrealbox = Ponto(1109, 343) 
         self.marcarAcao = Ponto(29, 344)
-        self.janelaAcoes = Ponto(255, 343)
-        self.janelaAcoes2 = Ponto(255, 369)
+        
+        self.janelaAcoes = Ponto(183, 343)
+        self.janelaAcoes2 = Ponto(183, 369)
+        self.janelaAcoes3 = Ponto(183, 396)
+        self.janelaAcoes4 = Ponto(183, 423)
+
         self.colarAtividade = Ponto(349, 342)
         
         self.verificador = pa.size()
@@ -150,6 +158,7 @@ class Programador:
             time.sleep(1)
             pa.click(self.janelaAcoes.x, self.janelaAcoes.y)
             time.sleep(2)
+
             keyboard.press_and_release('enter')
             time.sleep(2)
             dfGem.to_clipboard(index = False, header = None)
@@ -270,7 +279,7 @@ class Programador:
         keyboard.press_and_release('ctrl+a')
         time.sleep(1)
         f = open("LOG.txt", "a")
-        f.write("   *** Log de programação personalizada 750 - Medida 0080 ***\n\n")
+        f.write("   *** Log de programação personalizada 750 - Medida 0070 ***\n\n")
 
         for index, row in banconotas.iterrows():
             pa.write(str(row['NOTA']), interval=0.1)
@@ -298,14 +307,17 @@ class Programador:
             pa.click()
             pa.click(self.boxAcoes.x, self.boxAcoes.y)
             
+
+            #primeira acao
             pa.click(self.cellAcao.x, self.cellAcao.y)
             time.sleep(1)
             pa.click(self.janelaAcoes.x, self.janelaAcoes.y)
             time.sleep(3)
-            pa.press('down')
-            time.sleep(0.5)
-            #pa.press('down')
-            time.sleep(0.5)
+
+            for i in range(13):
+                pa.press('down')
+                time.sleep(0.2)
+
             keyboard.press_and_release('enter')
             time.sleep(1)
 
@@ -313,6 +325,35 @@ class Programador:
             time.sleep(1)
             pa.click(self.janelaAcoes2.x, self.janelaAcoes2.y)
             time.sleep(3)
+
+            for i in range(15):
+                pa.press('down')
+                time.sleep(0.2)
+
+            keyboard.press_and_release('enter')
+            time.sleep(1)
+
+            pa.click(self.cellAcao3.x, self.cellAcao3.y)
+            time.sleep(1)
+            pa.click(self.janelaAcoes3.x, self.janelaAcoes3.y)
+            time.sleep(3)
+
+            for i in range(37):
+                pa.press('down')
+                time.sleep(0.2)
+
+            keyboard.press_and_release('enter')
+            time.sleep(1)
+
+            pa.click(self.cellAcao4.x, self.cellAcao4.y)
+            time.sleep(1)
+            pa.click(self.janelaAcoes4.x, self.janelaAcoes4.y)
+            time.sleep(3)
+
+            for i in range(35):
+                pa.press('down')
+                time.sleep(0.2)
+
             keyboard.press_and_release('enter')
             time.sleep(1)
 

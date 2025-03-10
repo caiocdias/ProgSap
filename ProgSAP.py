@@ -10,7 +10,7 @@ import pandas as pd
 
 verificador = pa.size()
 if ((verificador[0] != 1920 or verificador[1] != 1080) and (verificador[0] != 1366 or verificador[1] != 768))  or ((ctypes.windll.shcore.GetScaleFactorForDevice(0) / 100) != 1.0):
-    sg.popup("A resolução do monitor principal deve ser de 1920x1080p ou 1366x768p e a escala deve estar em 100%.", icon='logo.ico', button_color="#000000", background_color="#ffffff", text_color="#000000", title="Erro")
+    sg.popup("A resolução do monitor principal deve ser de 1920x1080p ou 1366x768p e a escala deve estar em 100%.", button_color="#000000", background_color="#ffffff", text_color="#000000", title="Erro")
     sys.exit()     
 
 janela = Interface()
@@ -108,4 +108,4 @@ elif flagTipo == 4:
         programador = Programador()
         programador.Programacao75080(banconotas, df75080)
 
-sg.popup('Fim da programação.', icon='logo.ico', button_color="#000000", background_color="#ffffff", text_color="#000000", title="Aviso")
+sg.popup('Fim da programação.', button_color="#000000", background_color="#ffffff", text_color="#000000", title="Aviso")

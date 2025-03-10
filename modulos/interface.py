@@ -7,7 +7,7 @@ class Interface:
         
         self.win = sg.Window('Confirmação de Inicio', layout = layout, button_color=("#ffffff", "#000000"),
                                 background_color="#ffffff", sbar_background_color="#ffffff",
-                                sbar_arrow_color="#000000", text_justification='center', resizable=True, icon='logo.ico')
+                                sbar_arrow_color="#000000", text_justification='center', resizable=True)
         while True:
             event, values = self.win.read()
             if event == 'ok':
@@ -24,11 +24,11 @@ class Interface:
             [sg.Button('0070', key='k0070', font=("Arial", "11")),
              sg.Button('Atualizar Gemini', key='kgem', font=("Arial", "11")),
              sg.Button('Atualizar Atlantis', key='katl', font=("Arial", "11")),
-             sg.Button('0750 - Medida 0080', key='k75080', font=("Arial", "11")),
+             sg.Button('0750 - Medida 0070', key='k75080', font=("Arial", "11")),
              sg.Button('Sair', font=("Arial", "11"))]
             ]
         self.win = sg.Window('Interface de Seleção', layout = layout,
-                              background_color="#ffffff", button_color=("#ffffff", "#000000"), icon='logo.ico')
+                              background_color="#ffffff", button_color=("#ffffff", "#000000"))
         while True:
             event, values = self.win.read()
             if event == "Abrir":
@@ -41,9 +41,9 @@ class Interface:
                     [sg.Text('Instabilidades nos sistemas Cemig podem implicar em erros na execução da programação.', text_color="#000000", background_color="#ffffff")],
                     [sg.Button('Ok')]]
                 
-                sg.Window(layout=layouhelp, title="Ajuda",button_color="#000000", background_color="#ffffff", icon='logo.ico').read(close=True)
+                sg.Window(layout=layouhelp, title="Ajuda",button_color="#000000", background_color="#ffffff").read(close=True)
             elif event == "Contato":
-                sg.popup('Para suporte contate: caio.dias@engeselt.com.br', button_color='#000000', text_color='#000000', background_color="#ffffff", icon='logo.ico')
+                sg.popup('Para suporte contate: caio.dias@engeselt.com.br', button_color='#000000', text_color='#000000', background_color="#ffffff")
                 
             elif event == 'k0070':
                 self.win.close()
@@ -63,4 +63,4 @@ class Interface:
 
     def aviso(self):
         sg.popup('Certifique-se que o SAP está aberto na transação IW52 e está em destaque no monitor principal. O programa trabalhará com automatização de mouse e teclado, evite utilizar estas vias na máquina que está executando o programa, a não ser que deseje parar sua execução.',
-                 button_color='#000000', text_color='#000000', background_color="#ffffff", icon='logo.ico')
+                 button_color='#000000', text_color='#000000', background_color="#ffffff")
