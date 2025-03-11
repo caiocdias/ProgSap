@@ -43,7 +43,7 @@ class Interface:
                 
                 sg.Window(layout=layouhelp, title="Ajuda",button_color="#000000", background_color="#ffffff").read(close=True)
             elif event == "Contato":
-                sg.popup('Para suporte contate: caio.dias@engeselt.com.br', button_color='#000000', text_color='#000000', background_color="#ffffff")
+                sg.popup('Para suporte contate: Caio Cezar Dias', button_color='#000000', text_color='#000000', background_color="#ffffff")
                 
             elif event == 'k0070':
                 self.win.close()
