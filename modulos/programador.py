@@ -10,34 +10,45 @@ class Ponto:
 
 class Programador:
 
+    def incluirAcoes(self, pos = []):
+        offset = 26
+        for i, x in enumerate(pos):
+            pa.click(self.cellAcao.x, self.cellAcao.y + i * offset)
+            time.sleep(1)
+            pa.click(self.cellAcao.x, self.cellAcao.y + i * offset)
+            time.sleep(1)
+            pa.click(self.janelaAcoes.x, self.janelaAcoes.y + i * offset)
+            time.sleep(2)
+            for _ in range(x):
+                pa.press('down')
+                time.sleep(0.2)
+            keyboard.press_and_release('enter')
+
+    def colarAtividade(self, df):
+        df.to_clipboard(index = False, header = None)
+        pa.click(self.BoxColarAtividade.x, self.BoxColarAtividade.y)
+        time.sleep(1)
+        keyboard.press_and_release('ctrl+v')
+        time.sleep(1)
+        keyboard.press_and_release('enter')
+        time.sleep(1)
+        keyboard.press_and_release('enter')
+
     def Posicionamento(self):   
         #Fixos
         self.centroNota = Ponto(233, 206)
         self.boxAtividade = Ponto(572, 240)
         self.boxAcoes = Ponto(663, 240)
         self.sairPoint = Ponto(117, 55)
-        
         self.cellAcao = Ponto(122, 343) 
-        self.cellAcao2 = Ponto(122, 369)
-        self.cellAcao3 = Ponto(122, 396)
-        self.cellAcao4 = Ponto(122, 423)
-
         self.usrealbox = Ponto(281, 343)
         self.termrealbox = Ponto(1109, 343) 
         self.marcarAcao = Ponto(29, 344)
-        
         self.janelaAcoes = Ponto(183, 343)
-        self.janelaAcoes2 = Ponto(183, 369)
-        self.janelaAcoes3 = Ponto(183, 396)
-        self.janelaAcoes4 = Ponto(183, 423)
-
-        self.colarAtividade = Ponto(349, 342)
-        
+        self.BoxColarAtividade = Ponto(349, 342)
         self.verificador = pa.size()
-
         if self.verificador[1] == 1080:
             self.medTela = 21
-
         elif self.verificador[1] == 768:
             self.medTela = 12
     
@@ -49,8 +60,6 @@ class Programador:
         time.sleep(1)
         keyboard.press_and_release('ctrl+a')
         time.sleep(1)
-        f = open("LOG.txt", "a")
-        f.write("\t*** Log de programação personalizada 0080 ***\n\n")
 
         for index, row in banconotas.iterrows():
             pa.write(str(row['NOTA']), interval=0.1)
@@ -78,20 +87,9 @@ class Programador:
             pa.click()
             pa.click(self.boxAcoes.x, self.boxAcoes.y)
             
-            pa.click(self.cellAcao.x, self.cellAcao.y)
-            time.sleep(1)
-            pa.click(self.janelaAcoes.x, self.janelaAcoes.y)
+            self.incluirAcoes([12])
             time.sleep(2)
-            keyboard.press_and_release('enter')
-            time.sleep(2)
-            dfOrc.to_clipboard(index = False, header = None)
-            pa.click(self.colarAtividade.x, self.colarAtividade.y)
-            time.sleep(1)
-            keyboard.press_and_release('ctrl+v')
-            time.sleep(1)
-            keyboard.press_and_release('enter')
-            time.sleep(1)
-            keyboard.press_and_release('enter')
+            self.colarAtividade(dfOrc)
             time.sleep(1)
             keyboard.press_and_release('ctrl+s')
             time.sleep(5)
@@ -113,7 +111,6 @@ class Programador:
                     keyboard.press_and_release('ctrl+a')
                     time.sleep(1)
                     self.Posicionamento()
-                    f.write(f"Cadastrada: NS {row['NOTA']}, medida: {row['NUMMED']}.\n")
                     break
                 time.sleep(10)
 
@@ -125,8 +122,6 @@ class Programador:
         time.sleep(1)
         keyboard.press_and_release('ctrl+a')
         time.sleep(1)
-        f = open("LOG.txt", "a")
-        f.write("   *** Log de programação personalizada Gemini ***\n\n")
 
         for index, row in banconotas.iterrows():
             pa.write(str(row['NOTA']), interval=0.1)
@@ -154,21 +149,10 @@ class Programador:
             pa.click()
             pa.click(self.boxAcoes.x, self.boxAcoes.y)
             
-            pa.click(self.cellAcao.x, self.cellAcao.y)
-            time.sleep(1)
-            pa.click(self.janelaAcoes.x, self.janelaAcoes.y)
-            time.sleep(2)
+            self.incluirAcoes([6, 7, 5, 10])
 
-            keyboard.press_and_release('enter')
             time.sleep(2)
-            dfGem.to_clipboard(index = False, header = None)
-            pa.click(self.colarAtividade.x, self.colarAtividade.y)
-            time.sleep(1)
-            keyboard.press_and_release('ctrl+v')
-            time.sleep(1)
-            keyboard.press_and_release('enter')
-            time.sleep(1)
-            keyboard.press_and_release('enter')
+            self.colarAtividade(dfGem)
             time.sleep(1)
             keyboard.press_and_release('ctrl+s')
             time.sleep(5)
@@ -190,7 +174,6 @@ class Programador:
                     keyboard.press_and_release('ctrl+a')
                     time.sleep(1)
                     self.Posicionamento()
-                    f.write(f"Cadastrada: NS {row['NOTA']}, medida: {row['NUMMED']}.\n")
                     break
                 time.sleep(10)
 
@@ -202,8 +185,6 @@ class Programador:
         time.sleep(1)
         keyboard.press_and_release('ctrl+a')
         time.sleep(1)
-        f = open("LOG.txt", "a")
-        f.write("   *** Log de programação personalizada Atlantis ***\n\n")
 
         for index, row in banconotas.iterrows():
             pa.write(str(row['NOTA']), interval=0.1)
@@ -237,14 +218,7 @@ class Programador:
             time.sleep(2)
             keyboard.press_and_release('enter')
             time.sleep(2)
-            dfAtl.to_clipboard(index = False, header = None)
-            pa.click(self.colarAtividade.x, self.colarAtividade.y)
-            time.sleep(1)
-            keyboard.press_and_release('ctrl+v')
-            time.sleep(1)
-            keyboard.press_and_release('enter')
-            time.sleep(1)
-            keyboard.press_and_release('enter')
+            self.colarAtividade(dfAtl)
             time.sleep(1)
             keyboard.press_and_release('ctrl+s')
             time.sleep(5)
@@ -266,7 +240,6 @@ class Programador:
                     keyboard.press_and_release('ctrl+a')
                     time.sleep(1)
                     self.Posicionamento()
-                    f.write(f"Cadastrada: NS {row['NOTA']}, medida: {row['NUMMED']}.\n")
                     break
                 time.sleep(12)
 
@@ -278,8 +251,6 @@ class Programador:
         time.sleep(1)
         keyboard.press_and_release('ctrl+a')
         time.sleep(1)
-        f = open("LOG.txt", "a")
-        f.write("   *** Log de programação personalizada 750 - Medida 0070 ***\n\n")
 
         for index, row in banconotas.iterrows():
             pa.write(str(row['NOTA']), interval=0.1)
@@ -307,64 +278,10 @@ class Programador:
             pa.click()
             pa.click(self.boxAcoes.x, self.boxAcoes.y)
             
+            self.incluirAcoes([13, 15, 37, 35])
 
-            #primeira acao
-            pa.click(self.cellAcao.x, self.cellAcao.y)
             time.sleep(1)
-            pa.click(self.janelaAcoes.x, self.janelaAcoes.y)
-            time.sleep(3)
-
-            for i in range(13):
-                pa.press('down')
-                time.sleep(0.2)
-
-            keyboard.press_and_release('enter')
-            time.sleep(1)
-
-            pa.click(self.cellAcao2.x, self.cellAcao2.y)
-            time.sleep(1)
-            pa.click(self.janelaAcoes2.x, self.janelaAcoes2.y)
-            time.sleep(3)
-
-            for i in range(15):
-                pa.press('down')
-                time.sleep(0.2)
-
-            keyboard.press_and_release('enter')
-            time.sleep(1)
-
-            pa.click(self.cellAcao3.x, self.cellAcao3.y)
-            time.sleep(1)
-            pa.click(self.janelaAcoes3.x, self.janelaAcoes3.y)
-            time.sleep(3)
-
-            for i in range(37):
-                pa.press('down')
-                time.sleep(0.2)
-
-            keyboard.press_and_release('enter')
-            time.sleep(1)
-
-            pa.click(self.cellAcao4.x, self.cellAcao4.y)
-            time.sleep(1)
-            pa.click(self.janelaAcoes4.x, self.janelaAcoes4.y)
-            time.sleep(3)
-
-            for i in range(35):
-                pa.press('down')
-                time.sleep(0.2)
-
-            keyboard.press_and_release('enter')
-            time.sleep(1)
-
-            df75080.to_clipboard(index = False, header = None)
-            pa.click(self.colarAtividade.x, self.colarAtividade.y)
-            time.sleep(1)
-            keyboard.press_and_release('ctrl+v')
-            time.sleep(1)
-            keyboard.press_and_release('enter')
-            time.sleep(1)
-            keyboard.press_and_release('enter')
+            self.colarAtividade(df75080)
             time.sleep(1)
             keyboard.press_and_release('ctrl+s')
             time.sleep(5)
@@ -387,6 +304,5 @@ class Programador:
                     keyboard.press_and_release('ctrl+a')
                     time.sleep(1)
                     self.Posicionamento()
-                    f.write(f"Cadastrada: NS {row['NOTA']}, medida: {row['NUMMED']}.\n")
                     break
                 time.sleep(12)
