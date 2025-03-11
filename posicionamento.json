@@ -1,0 +1,12 @@
+{
+    "centroNota": { "x": 233, "y": 206 },
+    "boxAtividade": { "x": 572, "y": 240 },
+    "boxAcoes": { "x": 663, "y": 240 },
+    "sairPoint": { "x": 117, "y": 55 },
+    "cellAcao": { "x": 122, "y": 343 },
+    "usrealbox": { "x": 281, "y": 343 },
+    "termrealbox": { "x": 1109, "y": 343 },
+    "marcarAcao": { "x": 29, "y": 344 },
+    "janelaAcoes": { "x": 183, "y": 343 },
+    "BoxColarAtividade": { "x": 349, "y": 342 }
+}

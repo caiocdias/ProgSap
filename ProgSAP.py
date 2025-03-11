@@ -9,22 +9,22 @@ from modulos import TableWithExport
 import pandas as pd      
 
 verificador = pa.size()
-if ((verificador[0] != 1920 or verificador[1] != 1080) and (verificador[0] != 1366 or verificador[1] != 768))  or ((ctypes.windll.shcore.GetScaleFactorForDevice(0) / 100) != 1.0):
-    sg.popup("A resolução do monitor principal deve ser de 1920x1080p ou 1366x768p e a escala deve estar em 100%.", button_color="#000000", background_color="#ffffff", text_color="#000000", title="Erro")
+if (verificador[0] != 1920 or verificador[1] != 1080)  or ((ctypes.windll.shcore.GetScaleFactorForDevice(0) / 100) != 1.0):
+    sg.popup("A resolução do monitor principal deve ser de 1920x1080p e a escala deve estar em 100%.", button_color="#000000", background_color="#ffffff", text_color="#000000", title="Erro")
     sys.exit()     
 
 janela = Interface()
 flagTipo = janela.selecao()
 
-if flagTipo == 1:
+if flagTipo >= 1 and flagTipo <= 4:
 
     app = QApplication([])
     headers = ['RESP. TEC.', 'MOP', 'CONTRATO', 'COD. CONT.', 'CONTRATADA', 'Ini. Prev.', 'Duração', 'Term. Prev.', 'Term. Real', '%exec', 'Motivo Atraso', 'Observação']
-    window = TableWithExport(rows=1, cols=12, headers=headers, arq="dfOrc.csv")
+    window = TableWithExport(rows=1, cols=12, headers=headers, arq="df.csv")
     window.show()
     app.exec_()
-    dforc = pd.read_csv("dfOrc.csv", sep=',')
-    dforc['COD. CONT.'] = dforc['COD. CONT.'].apply(lambda x: '{0:0>10}'.format(x))
+    df = pd.read_csv("df.csv", sep=',')
+    df['COD. CONT.'] = df['COD. CONT.'].apply(lambda x: '{0:0>10}'.format(x))
 
 
     app2 = QApplication([])
@@ -36,76 +36,19 @@ if flagTipo == 1:
 
     if janela.confirmacaoInicio() == 1:
         janela.aviso()
-        programador = Programador()
-        programador.ProgramacaoOrc(banconotas, dforc)    
+        programador = Programador("posicionamento.json")
 
-elif flagTipo == 2:
-    app = QApplication([])
-    headers = ['RESP. TEC.', 'MOP', 'CONTRATO', 'COD. CONT.', 'CONTRATADA', 'Ini. Prev.', 'Duração', 'Term. Prev.', 'Term. Real', '%exec', 'Motivo Atraso', 'Observação']
-    window = TableWithExport(rows=1, cols=12, headers=headers, arq="dfGem.csv")
-    window.show()
-    app.exec_()
-    dfGem = pd.read_csv("dfGem.csv", sep=',')
-    dfGem['COD. CONT.'] = dfGem['COD. CONT.'].apply(lambda x: '{0:0>10}'.format(x))
+        acoes = []
+        match flagTipo:
+            case 1:
+                acoes = [12]
+            case 2:
+                acoes = [6, 7, 5, 10]
+            case 3:
+                acoes = []
+            case 4:
+                acoes = [13, 15, 37, 35]
 
-
-    app2 = QApplication([])
-    headers = ['NOTA', 'NUMMED']
-    window = TableWithExport(rows=1, cols=2, headers=headers, arq="banconotas.csv")
-    window.show()
-    app2.exec_()
-    banconotas = pd.read_csv("banconotas.csv", sep=',')
-
-
-    if janela.confirmacaoInicio() == 1:
-        janela.aviso()
-        programador = Programador()
-        programador.ProgramacaoGem(banconotas, dfGem) 
-
-elif flagTipo == 3:
-    app = QApplication([])
-    headers = ['RESP. TEC.', 'MOP', 'CONTRATO', 'COD. CONT.', 'CONTRATADA', 'Ini. Prev.', 'Duração', 'Term. Prev.', 'Term. Real', '%exec', 'Motivo Atraso', 'Observação']
-    window = TableWithExport(rows=1, cols=12, headers=headers, arq="dfAtl.csv")
-    window.show()
-    app.exec_()
-    dfAtl = pd.read_csv("dfAtl.csv", sep=',')
-    dfAtl['COD. CONT.'] = dfAtl['COD. CONT.'].apply(lambda x: '{0:0>10}'.format(x))
-
-
-    app2 = QApplication([])
-    headers = ['NOTA', 'NUMMED']
-    window = TableWithExport(rows=1, cols=2, headers=headers, arq="banconotas.csv")
-    window.show()
-    app2.exec_()
-    banconotas = pd.read_csv("banconotas.csv", sep=',')
-
-
-    if janela.confirmacaoInicio() == 1:
-        janela.aviso()
-        programador = Programador()
-        programador.ProgramacaoAtl(banconotas, dfAtl) 
-
-elif flagTipo == 4:
-    app = QApplication([])
-    headers = ['RESP. TEC.', 'MOP', 'CONTRATO', 'COD. CONT.', 'CONTRATADA', 'Ini. Prev.', 'Duração', 'Term. Prev.', 'Term. Real', '%exec', 'Motivo Atraso', 'Observação']
-    window = TableWithExport(rows=1, cols=12, headers=headers, arq="df75080.csv")
-    window.show()
-    app.exec_()
-    df75080 = pd.read_csv("df75080.csv", sep=',')
-    df75080['COD. CONT.'] = df75080['COD. CONT.'].apply(lambda x: '{0:0>10}'.format(x))
-
-
-    app2 = QApplication([])
-    headers = ['NOTA', 'NUMMED']
-    window = TableWithExport(rows=1, cols=2, headers=headers, arq="banconotas.csv")
-    window.show()
-    app2.exec_()
-    banconotas = pd.read_csv("banconotas.csv", sep=',')
-
-
-    if janela.confirmacaoInicio() == 1:
-        janela.aviso()
-        programador = Programador()
-        programador.Programacao75080(banconotas, df75080)
+        programador.programarAtividade(banconotas, df, acoes)
 
 sg.popup('Fim da programação.', button_color="#000000", background_color="#ffffff", text_color="#000000", title="Aviso")
