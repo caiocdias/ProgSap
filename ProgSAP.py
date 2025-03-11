@@ -52,6 +52,8 @@ if flagTipo >= 1 and flagTipo <= 7:
                 acoes = [16]
             case 6:
                 acoes = [30, 22, 36, 35]
+            case 7:
+                acoes = [30, 22, 37, 13, 15, 35]
 
         programador.programarAtividade(banconotas, df, acoes)
 

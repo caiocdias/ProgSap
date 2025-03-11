@@ -27,7 +27,7 @@ class Interface:
              sg.Button('0750 - Medida 0070', key='k75080', font=("Arial", "11")),
              sg.Button('0170', key='k0170', font=("Arial", "11")),
              sg.Button('0750 - Medida 0170 - 4 ações', key='k7501704', font=("Arial", "11")),
-             sg.Button('0750 - Medida 0170 - 7 ações', key='k7501707', font=("Arial", "11")),
+             sg.Button('0750 - Medida 0170 - 6 ações', key='k7501707', font=("Arial", "11")),
              sg.Button('Sair', font=("Arial", "11"))]
             ]
         self.win = sg.Window('Interface de Seleção', layout = layout,
