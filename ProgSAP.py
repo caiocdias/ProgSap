@@ -16,7 +16,7 @@ if (verificador[0] != 1920 or verificador[1] != 1080)  or ((ctypes.windll.shcore
 janela = Interface()
 flagTipo = janela.selecao()
 
-if flagTipo >= 1 and flagTipo <= 4:
+if flagTipo >= 1 and flagTipo <= 7:
 
     app = QApplication([])
     headers = ['RESP. TEC.', 'MOP', 'CONTRATO', 'COD. CONT.', 'CONTRATADA', 'Ini. Prev.', 'Duração', 'Term. Prev.', 'Term. Real', '%exec', 'Motivo Atraso', 'Observação']
@@ -48,6 +48,10 @@ if flagTipo >= 1 and flagTipo <= 4:
                 acoes = []
             case 4:
                 acoes = [13, 15, 37, 35]
+            case 5:
+                acoes = [16]
+            case 6:
+                acoes = [30, 22, 36, 35]
 
         programador.programarAtividade(banconotas, df, acoes)
 
