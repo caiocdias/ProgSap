@@ -38,6 +38,9 @@ class Programador:
 
     def colarAtividade(self, df):
         df.to_clipboard(index = False, header = None)
+        time.sleep(1)
+        pa.click(self.BoxColarAtividade.x, self.BoxColarAtividade.y)
+        time.sleep(1)
         pa.click(self.BoxColarAtividade.x, self.BoxColarAtividade.y)
         time.sleep(1)
         keyboard.press_and_release('ctrl+v')
