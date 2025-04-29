@@ -7,6 +7,7 @@
     "usrealbox": { "x": 281, "y": 343 },
     "termrealbox": { "x": 1109, "y": 343 },
     "marcarAcao": { "x": 29, "y": 344 },
-    "janelaAcoes": { "x": 183, "y": 343 },
-    "BoxColarAtividade": { "x": 349, "y": 342 }
+    "janelaAcoes": { "x": 254, "y": 343 },
+    "inicioPrevisto": {"x": 840,  "y": 343},
+    "BoxColarAtividade": { "x": 353, "y": 342 }
 }

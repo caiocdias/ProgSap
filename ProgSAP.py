@@ -28,8 +28,8 @@ if flagTipo >= 1 and flagTipo <= 7:
 
 
     app2 = QApplication([])
-    headers = ['NOTA', 'NUMMED']
-    window = TableWithExport(rows=1, cols=2, headers=headers, arq="banconotas.csv")
+    headers = ['NOTA', 'NUMMED', 'INIPREV']
+    window = TableWithExport(rows=1, cols=3, headers=headers, arq="banconotas.csv")
     window.show()
     app2.exec_()
     banconotas = pd.read_csv("banconotas.csv", sep=',')
@@ -43,7 +43,7 @@ if flagTipo >= 1 and flagTipo <= 7:
             case 1:
                 acoes = [12]
             case 2:
-                acoes = [6, 7, 10]
+                acoes = [6, 7, 11]
             case 3:
                 acoes = [4, 7, 14]
             case 4:

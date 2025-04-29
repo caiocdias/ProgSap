@@ -118,6 +118,7 @@ class Programador:
             self.entrarAcaoMedida(int(row['NUMMED']))
             self.incluirAcoes(acoes)
             time.sleep(1)
+            df['Ini. Prev.'] = row['INIPREV']
             self.colarAtividade(df)
             time.sleep(1)
             keyboard.press_and_release('ctrl+s')
