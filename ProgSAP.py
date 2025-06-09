@@ -41,13 +41,13 @@ if flagTipo >= 1 and flagTipo <= 7:
         acoes = []
         match flagTipo:
             case 1:
-                acoes = [12]
+                acoes = [2]
             case 2:
                 acoes = [6, 7, 11]
             case 3:
                 acoes = [4, 7, 14]
             case 4:
-                acoes = [15, 13, 33, 31]
+                acoes = [0, 2]
             case 5:
                 acoes = [16]
             case 6:
