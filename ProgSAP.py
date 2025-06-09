@@ -43,17 +43,13 @@ if flagTipo >= 1 and flagTipo <= 7:
             case 1:
                 acoes = [2]
             case 2:
-                acoes = [6, 7, 11]
+                acoes = [0, 2]
             case 3:
-                acoes = [4, 7, 14]
+                acoes = [0, 2]
             case 4:
                 acoes = [0, 2]
             case 5:
-                acoes = [16]
-            case 6:
-                acoes = [33, 23, 26, 31]
-            case 7:
-                acoes = [36, 30, 22, 37, 13, 15, 35]
+                acoes = [2]
 
         programador.programarAtividade(banconotas, df, acoes)
 

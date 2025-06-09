@@ -26,8 +26,6 @@ class Interface:
              sg.Button('0070', key='k0070', font=("Arial", "11")),
              sg.Button('0750 - Medida 0070', key='k75080', font=("Arial", "11")),
              sg.Button('0170', key='k0170', font=("Arial", "11")),
-             sg.Button('0750 - Medida 0170 - 4 ações', key='k7501704', font=("Arial", "11")),
-             sg.Button('0750 - Medida 0170 - 6 ações', key='k7501707', font=("Arial", "11")),
              sg.Button('Sair', font=("Arial", "11"))]
             ]
         self.win = sg.Window('Interface de Seleção', layout = layout,
@@ -63,12 +61,6 @@ class Interface:
             elif event == 'k0170':
                 self.win.close()
                 return 5
-            elif event == 'k7501704':
-                self.win.close()
-                return 6
-            elif event == 'k7501707':
-                self.win.close()
-                return 7
             elif  event == sg.WIN_CLOSED or event == 'Sair':
                 self.win.close()
                 break

@@ -30,9 +30,10 @@ class Programador:
             time.sleep(1)
             pa.click(self.janelaAcoes.x, self.janelaAcoes.y + i * offset)
             time.sleep(1)
-            for _ in range(x):
-                pa.press('down')
-                time.sleep(0.2)
+            if x > 0:
+                for _ in range(x):
+                    pa.press('down')
+                    time.sleep(0.2)
             keyboard.press_and_release('enter')
 
 
