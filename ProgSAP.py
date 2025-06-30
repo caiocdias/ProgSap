@@ -43,9 +43,9 @@ if flagTipo >= 1 and flagTipo <= 7:
             case 1:
                 acoes = [2]
             case 2:
-                acoes = [0, 2]
+                acoes = [0]
             case 3:
-                acoes = [0, 2]
+                acoes = [0]
             case 4:
                 acoes = [2, 0]
             case 5:
