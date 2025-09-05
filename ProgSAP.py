@@ -47,13 +47,13 @@ if flagTipo >= 1 and flagTipo <= 7:
             case 3:
                 acoes = [0]
             case 4:
-                acoes = [2, 0]
+                acoes = [4, 0]
             case 5:
                 acoes = [3]
             case 6:
-                acoes = [0, 1]
+                acoes = [0, 2]
             case 7:
-                acoes = [0, 1, 2]
+                acoes = [0, 2, 4]
         programador.programarAtividade(banconotas, df, acoes)
 
 sg.popup('Fim da programação.', button_color="#000000", background_color="#ffffff", text_color="#000000", title="Aviso")
