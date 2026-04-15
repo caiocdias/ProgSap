@@ -58,7 +58,7 @@ class Programador:
             setattr(self, key, Ponto(value["x"], value["y"]))
 
         self.verificador = pa.size()
-        self.medTela = 21 if self.verificador[1] == 1080 else 12 if self.verificador[1] == 768 else 0
+        self.medTela = 16
 
     def selecionarNota(self):
         pa.click(self.centroNota.x, self.centroNota.y)
@@ -96,7 +96,7 @@ class Programador:
                 keyboard.press_and_release('pgdown')
                 time.sleep(1)
             fator = fator + 1
-        pa.moveTo(29, (306+26.83/2)+(26.83*(nummed-num)))
+        pa.moveTo(31, (395)+(25*(nummed-num)))
         pa.click()
         pa.click(self.boxAcoes.x, self.boxAcoes.y)
 

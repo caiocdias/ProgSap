@@ -1,13 +1,13 @@
 {
-    "centroNota": { "x": 233, "y": 206 },
-    "boxAtividade": { "x": 572, "y": 240 },
-    "boxAcoes": { "x": 663, "y": 240 },
-    "sairPoint": { "x": 117, "y": 55 },
-    "cellAcao": { "x": 122, "y": 343 },
-    "usrealbox": { "x": 281, "y": 343 },
-    "termrealbox": { "x": 1109, "y": 343 },
+    "centroNota": { "x": 300, "y": 270 },
+    "boxAtividade": { "x": 768, "y": 330 },
+    "boxAcoes": { "x": 890, "y": 330 },
+    "sairPoint": { "x": 73, "y": 101 },
+    "cellAcao": { "x": 157, "y": 440 },
+    "usrealbox": { "x": 1004, "y": 440 },
+    "termrealbox": { "x": 920, "y": 440 },
     "marcarAcao": { "x": 29, "y": 344 },
-    "janelaAcoes": { "x": 254, "y": 343 },
-    "inicioPrevisto": {"x": 840,  "y": 343},
-    "BoxColarAtividade": { "x": 353, "y": 342 }
+    "janelaAcoes": { "x": 289, "y": 440 },
+    "inicioPrevisto": {"x": 651,  "y": 440},
+    "BoxColarAtividade": { "x": 316, "y": 440 }
 }
