@@ -1,13 +1,16 @@
 {
-    "centroNota": { "x": 300, "y": 270 },
-    "boxAtividade": { "x": 768, "y": 330 },
-    "boxAcoes": { "x": 890, "y": 330 },
+    "centroNota": { "x": 302, "y": 265 },
+    "boxAtividade": { "x": 868, "y": 301 },
+    "boxAcoes": { "x": 982, "y": 330 },
     "sairPoint": { "x": 73, "y": 101 },
-    "cellAcao": { "x": 157, "y": 440 },
-    "usrealbox": { "x": 1004, "y": 440 },
-    "termrealbox": { "x": 920, "y": 440 },
+    "cellAcao": { "x": 145, "y": 412 },
+    "usrealbox": { "x": 1769, "y": 412 },
+    "termrealbox": { "x": 936, "y": 412 },
     "marcarAcao": { "x": 29, "y": 344 },
-    "janelaAcoes": { "x": 289, "y": 440 },
-    "inicioPrevisto": {"x": 651,  "y": 440},
-    "BoxColarAtividade": { "x": 316, "y": 440 }
+    "janelaAcoes": { "x": 289, "y": 412 },
+    "inicioPrevisto": {"x": 669,  "y": 412},
+    "BoxColarAtividade": { "x": 316, "y": 412 }
 }
+
+296
+319

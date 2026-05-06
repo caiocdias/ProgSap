@@ -82,11 +82,11 @@ class Programador:
 
     def verificarManutencao(self, nota = float):
         if nota > 4000000000:
-            self.boxAtividade.x = 413
-            self.boxAcoes.x = 504
+            self.boxAtividade.x = 706
+            self.boxAcoes.x = 823
         elif nota < 4000000000:
-            self.boxAtividade.x = 572
-            self.boxAcoes.x = 663
+            self.boxAtividade.x = 868
+            self.boxAcoes.x = 982
 
     def entrarAcaoMedida(self, nummed = int):
         fator = 0
@@ -96,7 +96,7 @@ class Programador:
                 keyboard.press_and_release('pgdown')
                 time.sleep(1)
             fator = fator + 1
-        pa.moveTo(31, (395)+(25*(nummed-num)))
+        pa.moveTo(31, (378)+(25*(nummed-num)))
         pa.click()
         pa.click(self.boxAcoes.x, self.boxAcoes.y)
 
